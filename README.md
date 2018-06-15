@@ -7,7 +7,7 @@
 
 << lexicon.h >>
 
-!! Please download release versions !!
+!! Please download only from Releases Tab ( above )!!
 	// This repository will be used for development
 	// These files may have more bugs than release version
 
