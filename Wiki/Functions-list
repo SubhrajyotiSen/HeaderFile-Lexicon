@@ -1,0 +1,36 @@
+# Functions ( Listed )
+
+Click on any function to see what it does and how to use it
+
+### Advanced String (char array) modification functions
+1. [app_string](https://github.com/MFReaper/HeaderFile-Lexicon/wiki/Functions-(Syntax)#app-string)
+2. [cut_string](https://github.com/MFReaper/HeaderFile-Lexicon/wiki/Functions-(Syntax)#cut_string)
+		
+### Data Managing functions
+3. [conv_to_int](https://github.com/MFReaper/HeaderFile-Lexicon/wiki/Functions-(Syntax)#conv_to_int)
+4. [conv_to_char](https://github.com/MFReaper/HeaderFile-Lexicon/wiki/Functions-(Syntax)#conv_to_char)
+
+### Console data and output functions
+5. [getX](https://github.com/MFReaper/HeaderFile-Lexicon/wiki/Functions-(Syntax)#getX)
+6. [getY](https://github.com/MFReaper/HeaderFile-Lexicon/wiki/Functions-(Syntax)#getY)
+7. [screen_len](https://github.com/MFReaper/HeaderFile-Lexicon/wiki/Functions-(Syntax)#screen_len)
+8. [console_cursor](https://github.com/MFReaper/HeaderFile-Lexicon/wiki/Functions-(Syntax)#console_cursor)
+		
+### Design helping functions
+9. [gotoXY](https://github.com/MFReaper/HeaderFile-Lexicon/wiki/Functions-(Syntax)#gotoXY)
+10. [center_align[2]](https://github.com/MFReaper/HeaderFile-Lexicon/wiki/Functions-(Syntax)#center_align[1])
+11. [paragraph](https://github.com/MFReaper/HeaderFile-Lexicon/wiki/Functions-(Syntax)#paragraph)
+12. [clean_slate](https://github.com/MFReaper/HeaderFile-Lexicon/wiki/Functions-(Syntax)#clean_slate)
+
+### Design and Animation functions
+13. [typeout](https://github.com/MFReaper/HeaderFile-Lexicon/wiki/Functions-(Syntax)#typeout)
+14. [ascii_heading](https://github.com/MFReaper/HeaderFile-Lexicon/wiki/Functions-(Syntax)#ascii_heading)
+15. [rand_animation](https://github.com/MFReaper/HeaderFile-Lexicon/wiki/Functions-(Syntax)#rand_animation)
+
+### Data Security based
+16. [pass_entry](https://github.com/MFReaper/HeaderFile-Lexicon/wiki/Functions-(Syntax)#pass_entry)
+17. [encrypt](https://github.com/MFReaper/HeaderFile-Lexicon/wiki/Functions-(Syntax)#encrypt)
+18. [decrypt](https://github.com/MFReaper/HeaderFile-Lexicon/wiki/Functions-(Syntax)#decrypt)
+
+### File Handling
+19. [select_file](https://github.com/MFReaper/HeaderFile-Lexicon/wiki/Functions-(Syntax)#select_file)

@@ -1,0 +1,267 @@
+# How to Use the Functions
+
+## app-string
+`void app_string( char*, char* )`
+
+specify 2 char arrays and the second one will be added to the end of the first one
+
+````
+app_string( word, "Hello" );
+//Assuming word stored "Bye" initially, it now stores "ByeHello"
+````
+
+## cut_string
+`char* cut_string( char*, int, int )`
+
+enter a string, a start and an end point and the function shall return a new string
+
+````
+cut_string( word, 1, 3 );
+//Assuming word was "hello", the function returns "ell"
+````
+_Make sure to immediately save the returned value in a local char array variable by using strcpy function
+_
+
+## conv-to-int
+`int conv_to_int( char* )`
+
+enter a string and the function shall return it in numerical form
+
+````
+conv_to_int( "125" );
+//the function returns 125
+````
+
+## conv_to_char
+`char* conv_to_char( int )`
+
+enter an integer value and function returns a string holding the value
+````
+conv_to_char( 125 );
+//the function returns "125"
+````
+_Make sure to immediately save the returned value in a local char array variable by using strcpy function
+_
+
+## getX
+`int getX()`
+
+returns the x-coordinate of the cursor i.e. get the current position on the x-axis
+
+## getY
+`int getY()`
+
+returns the y-coordinate of the sursor o.e. get the current position on the y-axis
+
+## screen_len
+`int screen_len()`
+
+returns the width of the screen i.e. the number of characters which can be output in a single line in the console before switching to the next
+
+## console_sursor
+`void console_cursor(int)`
+
+show or hide the cursor which shows up on the screen
+
+````
+console_cursor( 0 );
+//this shall hide the cursor
+````
+
+## gotoXY
+`void gotoXY( int, int, int )`
+
+specify the coordinates to which the function will move the cursor to
+
+the last parameter is called relativity. using this we can specify that the number mentioned must be moved from the current position i.e. added or subtracted from current postition
+
+````
+gotoXY( 0, 0, 0 );
+//as relativity is off, the cursor shall move to (0, 0) i.e. the first output position
+gotoXY( -2, 0, 0 );
+//as relativity is on, the cursor shall move 2 spaces backward in the same line
+````
+
+## center_align [1]
+`void center_align(char*)`
+
+give a string as the input and it shall output the string in the center of the console
+
+````
+center_align( "Hello" );
+````
+
+## center_align [2]
+`void center_align(int)`
+
+give the length of the string to the function and it shall only move the cursor to the center position
+
+````
+center_align( 5 );
+````
+
+## paragraph
+`char* paragraph(char*)`
+
+returns a string which is a modified version of the one input as the parameter
+
+adds word wrap to the string given to the function
+
+_Make sure to immediately save the returned value in a local char array variable by using strcpy function_
+
+## clean_slate
+`void clean_slate( int, int )`
+
+specify the coordinates of a point on the console
+
+the cursor shall be moved 1-by-1 acros the x-axis (and y when scree end is reached ) towards the specified point clearing every position it goes to till it reached the specified position
+
+````
+clean_slate( 0, 0 );
+//using this, we can clear the whole screen
+clean_slate( 5, 0 );
+//using this, the first 5 spaces of the console wont be cleared, everything else from the current poistion shall be cleared
+````
+
+#typeout
+
+an animation which shows the specified text as though it was being typewritten
+
+the first parameter is the char array holding the string
+
+the second one specifies the type of delay you are providing
+    - 'i': this means the time delay mentioned will be for individual characters
+    - 't': this means that the time is the duration for the whole animation
+
+the third parameter is the time ( in milliseconds ) which is formatted according to the second parameter
+
+````
+typeout( "Hello", 'i', 1000 );
+//this means that the word hello will be typed out on the screen with a delay of 1 second between each letter
+````
+
+## ascii_heading
+
+this function returns a new string which is a designer version of the string provided to the function
+
+the new string is made up of dashes, and slashes and is quite big, so make sure that the variable in which you shall be saving the output shoud be quite big ( i've tested with 5000 )
+
+the first parameter is the char array holding the string
+
+````
+ascii_heading( "lexicon" );
+//to see the output of this, see the heading of the README file
+````
+
+_Make sure to immediately save the returned value in a local char array variable by using strcpy function_
+
+## rand_animation
+
+#typeout
+
+an animation which randomly selects  letters from a string and displays it in its position on the screen one-by-one
+
+the first parameter is the char array holding the string
+
+the second one specifies the type of delay you are providing
+    - 'i': this means the time delay mentioned will be for individual characters
+    - 't': this means that the time is the duration for the whole animation
+
+the third parameter is the time ( in milliseconds ) which is formatted according to the second parameter
+
+````
+rand_animation("this is just a random text", 't', 2000 );
+// this shall randomly select letters from the string and show them 1-by-1
+// this shall run for the duration of 2 seconds
+````
+
+## pass_entry
+`void pass_entry( char*, char, int )`
+
+a function which can be used to input a password
+
+the text being typed is not shown, a fixed character is shown in its place
+
+use in place of cin/gets/cin.getline
+
+first parameter is the char array in which the password shall be saved
+
+the second parameter is the fixed char constant which is used in place of the letters shown to the user
+
+the third parameter is the maximum length of the password
+
+````
+pass_entry( passwd, '*', 8 );
+// this shall give the user a space to type
+// on typing a '*' will be shown in place of the actual letters
+// the maximum typable length will be 8, after which it wont take more inputs ( backspace will still work )
+// the input shall be saved in the char array name passwd
+````
+
+## encrypt
+`char* encrypt( char*, char*, char*)`
+
+this function encrypts a string
+
+the first parameter is either the location of the file to be encrypted or the string to be encrypted itself
+
+the second parameter is the password to be used to encrypt the string/file
+
+the third parameter, if provided, specifies the location at which the encrypted output file should be saved ( enter complete file location )
+
+if the third output parameter is not specified, it takes default value "**" which tell the function to return the encrypted output as a string
+
+````
+encrypt( "Hello", "some123" );
+//Hello will be encrypted with the password some123 and the output shall be returned ( use strcpy to save )
+
+encrypt( "Hello", "some123", "C:/file.txt" );
+//Hello will be encrypted with the password some123 and the output will be saved in a file.txt in the C: drive
+
+encrypt( "C:/file.txt", "some123", "C:\\file2.txt" );
+//file.txt will be encrypted with password some123 and the output will be another file file2.txt
+````
+_Make sure to immediately save the returned value in a local char array variable by using strcpy function ( if string is going to be returned )_
+
+_While using file streaming, it is best to run as admin to ensure that all files are visible and can be used_
+
+_input and ouput files/arrays can be the same but it can lead to permanent loss of data if the password is misplaced_
+
+## decrypt
+`char* decrypt( char*, char*, char* )`
+
+used to reverse the work done by encrypt function
+
+usage is the same as encrypt!
+
+make sure to have the same password used while encrypting else the data will be unrecoverable
+
+__To understand the encryption/decryption method, please check CRYPTEX (page/file) [to be added]__
+
+## select_file
+`char* select_file( char*, int )`
+
+displays a list of matching files and folders present in a specified location of the computer
+
+the first parameter specifies the location of which the content is to be displayed
+
+the second parameter specifies the kind of content to be displayed
+
+    - 0: All
+    - 1: Files only
+    - 2: Folders only
+
+using the number indexes, the user will be able to move around directories and finally select a file or a folder
+
+the function returns the location of the file/folder selected
+
+the user can also cancel in which case the function returns "\0"
+
+````
+select_file( "C:\Users\Student\Documents", 2 );
+this shall keep displaying the folder present in the current directory ( Documents of Student at first ) till a folder is not selected
+````
+
+_Make sure to immediately save the returned value in a local char array variable by using strcpy function_
+
+_The select file function does not display system or hidden files/folders_

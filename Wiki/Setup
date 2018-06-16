@@ -1,0 +1,37 @@
+# Setup
+To use this header file, you can include it in your `C++` codes by 2 methods:
+## Add Header file to include folder
+Copy the header file to the include folder of your compiler/IDE. This shall allow the the header file to be used as any other header file.
+
+For Dev-Cpp the location of the include folder is:
+`"[Installation Location]\MinGW64\include"`
+
+To include the header file:
+
+````
+#include <lexicon.h>
+````
+
+## Give location of the header file
+Use a slightly differnt `#include` directive to include the header file by giving its absolute or relative location to the cpp file
+
+To include header file:
+
+_Assuming that_
+- _Location in which `cpp` file is saved: `C:\Code\test.cpp`_
+- _Location in which header file is saved: `C:\File\lexicon.h`_
+
+````
+#include "C:/File/lexicon.h"
+// This uses the absolute location of the file
+// recommended only if the file shall never be moved
+````
+
+__OR__
+
+````
+#include "../File/lexicon.h"
+// This uses the relative location of the header file
+// Recommended of the header file and the cpp code will be moved/copied
+// Also copy the files/folder together
+````
