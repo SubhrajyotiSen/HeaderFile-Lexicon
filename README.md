@@ -1,4 +1,4 @@
-__Read the Wiki__
+__Read the Wiki!!__
 
 Read the wiki before contacting the developer. It has all syntax and also explains the header file
 
