@@ -51,14 +51,14 @@ returns the x-coordinate of the cursor i.e. get the current position on the x-ax
 ## getY
 `int getY()`
 
-returns the y-coordinate of the sursor o.e. get the current position on the y-axis
+returns the y-coordinate of the cursor o.e. get the current position on the y-axis
 
 ## screen_len
 `int screen_len()`
 
 returns the width of the screen i.e. the number of characters which can be output in a single line in the console before switching to the next
 
-## console_sursor
+## console_cursor
 `void console_cursor(int)`
 
 show or hide the cursor which shows up on the screen
@@ -114,7 +114,7 @@ _Make sure to immediately save the returned value in a local char array variable
 
 specify the coordinates of a point on the console
 
-the cursor shall be moved 1-by-1 acros the x-axis (and y when scree end is reached ) towards the specified point clearing every position it goes to till it reached the specified position
+the cursor shall be moved 1-by-1 across the x-axis (and y when screen end is reached ) towards the specified point clearing every position it goes to till it reached the specified position
 
 ````
 clean_slate( 0, 0 );
