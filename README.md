@@ -1,3 +1,8 @@
+__Read the Wiki__
+
+Read the wiki before contacting the developer. It has all syntax and also explains the header file
+
+
 ````
  _        ______   __   __  _____    _____    ____    _   _
 | |      |  ____|  \ \ / / |_   _|  / ____|  / __ \  | \ | |
