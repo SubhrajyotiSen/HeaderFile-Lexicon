@@ -39,16 +39,16 @@ COORD cursor_position;	// To hold the current postion of the cursor
 	char* cut_string(char*, int, int);	// return a part of a string
 	void app_string(char*, char*);	// Appends 2 strings into one
 	void pass_entry(char*, char, int);	// The user inputs a password, an each char is enveloped by a special character
-	char* select_file(char*, int);	// User can browse files on the console and either select a file or a folder
+	char* select_file(char*, int, char*);	// User can browse files on the console and either select a file or a folder
 	
 	void typeout(char*, char, int);	// Output a string on the console as if being typed
 	char* ascii_heading( char*);	// Creates a stylish heading made with lines and dashes
-	void rand_animation( char*, char, int);	// Displays the text in an animated form ( characters show up randomly )
+	void rand_animation( char*, char, int, int);	// Displays the text in an animated form ( characters show up randomly )
 	
 	void clean_slate( int, int ); // Cleans the screen to the given coordinates
 	char* paragraph(char*);	// Breaks the line while ensuring no word gets cut according to the length of the screen
 	void center_align(char*);	// Moves the cursor to the position it should be at if a text was being center-aligned. input the string
-	void center_align(int);	// Moves the cursor to the position it should be at if a text was being center-aligned. input the length of the string
+	int center_align(int);	// Moves the cursor to the position it should be at if a text was being center-aligned. input the length of the string
 	void console_cursor(int);	// Show or hide the blinking cursor in console window
 	int console_cursor();	// Tell what is the cursor set to ( Show / Hide )
 	void gotoXY(int, int, int);	// Go to the x and y coordinate positions of the console or shift it by the values
@@ -67,7 +67,6 @@ COORD cursor_position;	// To hold the current postion of the cursor
 
 	void OPEN_RUN(char*, char*);	// Commands to run at start of encryption/decryption
 	char* CLOSE_RUN(char*);	// Commands to run at end of encryption/decryption
-	void CA(int);	// The main center align algorithm
 	
 	
 // MAIN FUNCTIONS //
@@ -1954,16 +1953,43 @@ void clean_slate( int x, int y ) {
 	return;
 }
 
-void rand_animation( char* text, char time_type, int time_in_ms ) {
+void rand_animation( char* text, char time_type, int time_in_ms, int center_aligning = 0) {
 	/*
 	time_type:
 		't': total time
 		'i': time for individual charater
 	*/
+	/*
+	center_align:
+		0: False/No
+		1: True/Yes
+	*/
+	
+	// center_align, displacement
+	int counter = 0;
+	for( int i = 0; i <= strlen( text ); i++ ) {
+		if( text[i] == '\n' || text[i] == '\0' ) {
+			counter++;
+		}
+	}
+	
+	int displacement[counter];
+	int len = 0;
+	for( int i = 0, j = 0; i <= strlen( text ); i++ ) {
+		if( text[i] != '\n' && text[i] != '\0' ) {
+			len++;
+		}
+		else {
+			displacement[j] = center_align( len );
+			len = 0;
+			j++;
+		}
+	}
+	//
 	
 	console_cursor( 0 );
 	
-	int len = 0;
+	len = 0;
 	for( int i = 0; i < strlen( text ); i++ ) {
 		if( text[i] != '\n' && text[i] != ' ' ) {
 			len++;
@@ -1990,7 +2016,7 @@ void rand_animation( char* text, char time_type, int time_in_ms ) {
 	
 	int x = 0, y = 0, y_max = 0;
 	int i = 0;
-	int counter = 0;
+	counter = 0;
 	
 	while( counter != len ) {
 		i = rand() % strlen( text );
@@ -2012,7 +2038,14 @@ void rand_animation( char* text, char time_type, int time_in_ms ) {
 					break;
 				}
 			}
-			gotoXY( x, y, 1 );
+			
+			if( center_aligning ) {
+				gotoXY( x + displacement[y], pos.Y + y, 0 );
+			}
+			else {
+				gotoXY( x, y, 1 );
+			}
+			
 			cout << message[i];
 			x = 0; y = 0;
 			message[i] = '\0';
@@ -2165,7 +2198,7 @@ void pass_entry(char* password_array, char hide_char, int max_length)
 
 
 
-char* select_file(char* location, int entry_type)
+char* select_file(char* location, int entry_type, char* file_extension = "*")
 /*
 entry_type:
 	0: All
@@ -2175,12 +2208,21 @@ entry_type:
 {
 	int cursor = console_cursor();
 	int run_counter = 0;	// To store which iteration (numerically) of the function is the current one
+	
 	char path[260];
 	for( int i = 0; i < 260; i++ )	// Clearing the variable path
 	{
 		path[i] = '\0';
 	}
 	app_string( path, location );	// Original Variable/Input must not be changed
+	
+	char ext[10];
+	if( file_extension[0] == '.' ) {
+		strcpy( ext, cut_string( file_extension, 1, strlen( file_extension ) ) );
+	}
+	else {
+		strcpy( ext, file_extension );
+	}
 	
 	SELECT_FILE_MAIN:
 	
@@ -2249,8 +2291,25 @@ entry_type:
 						counter++;
 						break;
 					case 1:
-						strcpy(file_list[counter], file.cFileName);
-						counter++;
+						if( file.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY ) {
+							strcpy( file_list[counter], file.cFileName );
+							counter++;
+						}
+						else if ( strcmp( ext, "*" ) == 0 ) {
+							strcpy( file_list[counter], file.cFileName );
+							counter++;
+						}
+						else {
+							for( int i = 0; i < strlen( file.cFileName ); i++ ) {
+								if( file.cFileName[i] == '.' ) {
+									if( strcmp( ext, cut_string( file.cFileName, ( i + 1 ), strlen( file.cFileName ) ) ) == 0 ) {
+										strcpy( file_list[counter], file.cFileName );
+										counter++;
+									}
+									break;
+								}
+							}
+						}
 						break;
 					case 2:
 						if( file.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY )	//Only List Folders
@@ -2284,16 +2343,7 @@ entry_type:
 		
 		// Clearing the previous output
 		console_cursor( 0 );
-		while( getY() != cursor_position.Y )	// While cursor is not in the same line
-		{
-			gotoXY( 0, getY() - 1, 0 );	// Move one line back
-			// Clear the line
-			for( int i = 0; i < screen_len() - 1; i++)
-			{
-				cout<<" ";	
-			}
-		}
-		gotoXY( 0, getY(), 0);	// Go to the sarting position of the line 
+		clean_slate( 0, cursor_position.Y );
 		
 		cout << paragraph( "Current Location: " ) << endl;
 		cout.write( path, strlen(path)-1 );	// Dont display the '*'
@@ -2539,15 +2589,17 @@ void center_align(char* input )
 {
 	char message[5000];
 	strcpy( message, paragraph( input ) );
-	int pos = 0;
+	int pos = 0, displacement = 0;
 	for( int i = 0; i <= strlen( message ); i++ ) {
 		if( message[i] == '\n' ) {
-			CA( i - pos);
+			displacement = center_align( i - pos );
+			gotoXY( displacement, getX(), 0 );
 			cout << cut_string( message, pos, i );
 			pos = i + 1;
 		}
 		else if( message[i] == '\0' ) {
-			CA( i - pos );
+			displacement = center_align( i - pos );
+			gotoXY( displacement, getX(), 0 );
 			cout << cut_string( message, pos, i );
 		}
 	}
@@ -2555,17 +2607,9 @@ void center_align(char* input )
 	return;
 }
 
-void center_align( int string_len )
+int center_align( int string_len )
 {
 	int len = string_len;
-	
-	CA( len );
-	
-	return;
-}
-
-void CA(int len)
-{
 	int s_len = screen_len();
 	
 	switch( len % 2)
@@ -2588,11 +2632,8 @@ void CA(int len)
 			break;
 	}
 	
-	gotoXY( s_len - len, getY(), 0 );
-	
-	return;
+	return ( s_len - len );
 }
-
 
 
 void console_cursor(int show_cursor)
