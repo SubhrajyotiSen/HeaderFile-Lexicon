@@ -239,7 +239,7 @@ make sure to have the same password used while encrypting else the data will be 
 __To understand the encryption/decryption method, please check CRYPTEX (page/file) [to be added]__
 
 ## select_file
-`char* select_file( char*, int )`
+`char* select_file( char*, int, char* )`
 
 displays a list of matching files and folders present in a specified location of the computer
 
@@ -256,6 +256,10 @@ using the number indexes, the user will be able to move around directories and f
 the function returns the location of the file/folder selected
 
 the user can also cancel in which case the function returns "\0"
+
+the third parameter is optional. It is used to enter a file extension. The function shall now show only files of the specified extension.
+
+this works only if the entry_type ( second parameter ) is set to files ( 1 )
 
 ````
 select_file( "C:\Users\Student\Documents", 2 );
