@@ -169,1765 +169,1815 @@ time_type:
 char* ascii_heading( char* message ) {
 	int m = 0;
 	int x = 0;
+	char message_refined[200];
 	char var[5000];
-	char msg[100];
+	char msg[20][100];
 	
-	for( int i = 0; i < 500; i++ ) {
+	for( int i = 0; i < 5000; i++ ) {
 		var[i] = '\0';
 	}
 	
-	for( int i = 0; i < 100; i++ ) {
-		msg[i] = '\0';
+	for( int i = 0; i < 200; i++ ) {
+		message_refined[i] = '\0';
 	}
-	for( int i = 0, j = 0; i < strlen( message); i++, j++ ) {
+	
+	for( int i = 0; i < 20; i++ ) {
+		for( int j = 0; j < 100; j++ ) {
+			msg[i][j] = '\0';
+		}
+	}
+
+	for( int i = 0, j = 0; i < strlen( message ); i++, j++ ) {
 		if( islower( message[i] ) ) {
-			msg[j] = toupper( message[i] );
+			message_refined[j] = toupper( message[i] );
 		}
 		else if( isalpha( message[i] ) ) {
-			msg[j] = message[i];
+			message_refined[j] = message[i];
 		}
-		else if( message[i] == ' ' ) {
-			msg[j] = message[i];
+		else if( message[i] == ' ' || message[i] == '\n' ) {
+			message_refined[j] = message[i];
 		}
 		else {
 			j--;
 		}
 	}
 	
-	while( x < 6 ) {
-		for( int i = 0; i < strlen( msg ); i++ ) {
-			switch( msg[i] ) {
-				case ' ':
-					switch( x ) {
-						case 0:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 1:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 2:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 3:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 4:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 5:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-					}						
-					break;
-				case 'A':
-					switch( x ) {
-						case 0:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 1:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							var[m] = '\\'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 2:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 3:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							var[m] = '\\'; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 4:
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 5:
-							var[m] = '/'; m++;
-							var[m] = '_'; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = '_'; m++;
-							var[m] = '\\'; m++;
-							break;
-					}
-					break;
-				case 'B':
-					switch( x ) {
-						case 0:
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 1:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 2:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = ')'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 3:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = '<'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 4:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = ')'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 5:
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							break;
-					}
-					break;
-				case 'C':
-					switch( x ) {
-						case 0:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 1:
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							break;
-						case 2:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 3:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 4:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 5:
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							break;
-					}
-					break;
-				case 'D':
-					switch( x ) {
-						case 0:
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 1:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 2:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 3:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 4:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 5:
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							break;
-					}
-					break;
-				case 'E':
-					switch( x ) {
-						case 0:
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 1:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							break;
-						case 2:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 3:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 4:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 5:
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							break;
-					}
-					break;
-				case 'F':
-					switch( x ) {
-						case 0:
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 1:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							break;
-						case 2:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 3:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 4:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 5:
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-					}
-					break;
-				case 'G':
-					switch( x ) {
-						case 0:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 1:
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							break;
-						case 2:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 3:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 4:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 5:
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							break;
-					}
-					break;
-				case 'H':
-					switch( x ) {
-						case 0:
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 1:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 2:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 3:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 4:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 5:
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							break;
-					}
-					break;
-				case 'I':
-					switch( x ) {
-						case 0:
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 1:
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							break;
-						case 2:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 3:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 4:
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 5:
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							break;
-					}
-					break;
-				case 'J':
-					switch( x ) {
-						case 0:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 1:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 2:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 3:
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 4:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 5:
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							break;
-					}
-					break;
-				case 'K':
-					switch( x ) {
-						case 0:
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							break;
-						case 1:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							break;
-						case 2:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '\''; m++;
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 3:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '<'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 4:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '.'; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 5:
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							var[m] = '\\'; m++;
-							var[m] = '_'; m++;
-							var[m] = '\\'; m++;
-							break;
-					}
-					break;
-				case 'L':
-					switch( x ) {
-						case 0:
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 1:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 2:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 3:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 4:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 5:
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							break;
-					}
-					break;
-				case 'M':
-					switch( x ) {
-						case 0:
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 1:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 2:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 3:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = '\\'; m++;
-							var[m] = '/'; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 4:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 5:
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							break;
-					}
-					break;
-				case 'N':
-					switch( x ) {
-						case 0:
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 1:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 2:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 3:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '.'; m++;
-							var[m] = ' '; m++;
-							var[m] = '`'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 4:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = '\\'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 5:
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							break;
-					}
-					break;
-				case 'O':
-					switch( x ) {
-						case 0:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 1:
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 2:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 3:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 4:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 5:
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							break;
-					}
-					break;
-				case 'P':
-					switch( x ) {
-						case 0:
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 1:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 2:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ')'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 3:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 4:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 5:
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-					}
-					break;
-				case 'Q':
-					switch( x ) {
-						case 0:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 1:
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 2:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 3:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 4:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 5:
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '\\'; m++;
-							var[m] = '_'; m++;
-							var[m] = '\\'; m++;
-							break;
-					}
-					break;
-				case 'R':
-					switch( x ) {
-						case 0:
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 1:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 2:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ')'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 3:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 4:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 5:
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = '_'; m++;
-							var[m] = '\\'; m++;
-							break;
-					}
-					break;
-				case 'S':
-					switch( x ) {
-						case 0:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 1:
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							break;
-						case 2:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '('; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 3:
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 4:
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ')'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 5:
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							break;
-					}
-					break;
-				case 'T':
-					switch( x ) {
-						case 0:
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 1:
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							break;
-						case 2:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 3:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 4:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 5:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-					}
-					break;
-				case 'U':
-					switch( x ) {
-						case 0:
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 1:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 2:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 3:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 4:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 5:
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							break;
-					}
-					break;
-				case 'V':
-					switch( x ) {
-						case 0:
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							break;
-						case 1:
-							var[m] = '\\'; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							break;
-						case 2:
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 3:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 4:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 5:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-					}
-					break;
-				case 'W':
-					switch( x ) {
-						case 0:
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							break;
-						case 1:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 2:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							var[m] = '\\'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 3:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 4:
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							var[m] = '\\'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							break;
-						case 5:
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							break;
-					}
-					break;
-				case 'X':
-					switch( x ) {
-						case 0:
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							break;
-						case 1:
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							break;
-						case 2:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = ' '; m++;
-							var[m] = 'V'; m++;
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 3:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '>'; m++;
-							var[m] = ' '; m++;
-							var[m] = '<'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 4:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							var[m] = '.'; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 5:
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							var[m] = '_'; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = '_'; m++;
-							var[m] = '\\'; m++;
-							break;
-					}
-					break;
-				case 'Y':
-					switch( x ) {
-						case 0:
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							break;
-						case 1:
-							var[m] = '\\'; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							break;
-						case 2:
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = '_'; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 3:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '\\'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 4:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 5:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-					}
-					break;
-				case 'Z':
-					switch( x ) {
-						case 0:
-							var[m] = ' '; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							break;
-						case 1:
-							var[m] = '|'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							break;
-						case 2:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 3:
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							var[m] = ' '; m++;
-							break;
-						case 4:
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							var[m] = ' '; m++;
-							var[m] = '/'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = ' '; m++;
-							break;
-						case 5:
-							var[m] = '/'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '_'; m++;
-							var[m] = '|'; m++;
-							break;
-					}
-					break;
+	int counter = 0;
+	for( int i = 0, pos = 0, letter_count = 0; i <= strlen( message_refined ); i++ ) {
+		if( ( message_refined[i] == '\n' || message_refined[i] == '\0' ) ) {
+			strcpy( msg[counter], cut_string( message_refined, pos, ( i - 1 ) ) );
+			pos = i + 1;
+			counter++;
+			letter_count = 0;
+		}
+		else {
+			letter_count++;
+		}
+		
+		if( letter_count * 12 >= screen_len() ) {
+			int j = i;
+			while( message_refined[j] != ' ' && j > pos ) {
+				j--;
 			}
-			var[m] = ' '; m++;
+			if( j > pos ) {
+				i = j;
+			}
+			strcpy( msg[counter], cut_string( message_refined, pos, i ) );
+			pos = i + 1;
+			counter++;
+			letter_count = 0;
+		}
+	}
+	
+	/*
+	for( int i = 0; i < counter; i++ ) {
+		cout.write( msg[i], strlen( msg[i] ) ); cout << endl;
+	}
+	getch();
+	*/
+
+	
+	for( int j = 0; j < counter; j++ ) {
+		x = 0;
+		while( x < 6 ) {
+			for( int i = 0; i < strlen( msg[j] ); i++ ) {
+				switch( msg[j][i] ) {
+					case ' ':
+						switch( x ) {
+							case 0:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 1:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 2:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 3:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 4:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 5:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+						}						
+						break;
+					case 'A':
+						switch( x ) {
+							case 0:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 1:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								var[m] = '\\'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 2:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 3:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								var[m] = '\\'; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 4:
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 5:
+								var[m] = '/'; m++;
+								var[m] = '_'; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = '_'; m++;
+								var[m] = '\\'; m++;
+								break;
+						}
+						break;
+					case 'B':
+						switch( x ) {
+							case 0:
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 1:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 2:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = ')'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 3:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = '<'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 4:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = ')'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 5:
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								break;
+						}
+						break;
+					case 'C':
+						switch( x ) {
+							case 0:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 1:
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								break;
+							case 2:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 3:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 4:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 5:
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								break;
+						}
+						break;
+					case 'D':
+						switch( x ) {
+							case 0:
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 1:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 2:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 3:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 4:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 5:
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								break;
+						}
+						break;
+					case 'E':
+						switch( x ) {
+							case 0:
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 1:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								break;
+							case 2:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 3:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 4:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 5:
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								break;
+						}
+						break;
+					case 'F':
+						switch( x ) {
+							case 0:
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 1:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								break;
+							case 2:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 3:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 4:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 5:
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+						}
+						break;
+					case 'G':
+						switch( x ) {
+							case 0:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 1:
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								break;
+							case 2:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 3:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 4:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 5:
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								break;
+						}
+						break;
+					case 'H':
+						switch( x ) {
+							case 0:
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 1:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 2:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 3:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 4:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 5:
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								break;
+						}
+						break;
+					case 'I':
+						switch( x ) {
+							case 0:
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 1:
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								break;
+							case 2:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 3:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 4:
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 5:
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								break;
+						}
+						break;
+					case 'J':
+						switch( x ) {
+							case 0:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 1:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 2:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 3:
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 4:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 5:
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								break;
+						}
+						break;
+					case 'K':
+						switch( x ) {
+							case 0:
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								break;
+							case 1:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								break;
+							case 2:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '\''; m++;
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 3:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '<'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 4:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '.'; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 5:
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								var[m] = '\\'; m++;
+								var[m] = '_'; m++;
+								var[m] = '\\'; m++;
+								break;
+						}
+						break;
+					case 'L':
+						switch( x ) {
+							case 0:
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 1:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 2:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 3:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 4:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 5:
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								break;
+						}
+						break;
+					case 'M':
+						switch( x ) {
+							case 0:
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 1:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 2:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 3:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = '\\'; m++;
+								var[m] = '/'; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 4:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 5:
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								break;
+						}
+						break;
+					case 'N':
+						switch( x ) {
+							case 0:
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 1:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 2:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 3:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '.'; m++;
+								var[m] = ' '; m++;
+								var[m] = '`'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 4:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = '\\'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 5:
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								break;
+						}
+						break;
+					case 'O':
+						switch( x ) {
+							case 0:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 1:
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 2:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 3:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 4:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 5:
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								break;
+						}
+						break;
+					case 'P':
+						switch( x ) {
+							case 0:
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 1:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 2:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ')'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 3:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 4:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 5:
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+						}
+						break;
+					case 'Q':
+						switch( x ) {
+							case 0:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 1:
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 2:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 3:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 4:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 5:
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '\\'; m++;
+								var[m] = '_'; m++;
+								var[m] = '\\'; m++;
+								break;
+						}
+						break;
+					case 'R':
+						switch( x ) {
+							case 0:
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 1:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 2:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ')'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 3:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 4:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 5:
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = '_'; m++;
+								var[m] = '\\'; m++;
+								break;
+						}
+						break;
+					case 'S':
+						switch( x ) {
+							case 0:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 1:
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								break;
+							case 2:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '('; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 3:
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 4:
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ')'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 5:
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								break;
+						}
+						break;
+					case 'T':
+						switch( x ) {
+							case 0:
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 1:
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								break;
+							case 2:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 3:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 4:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 5:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+						}
+						break;
+					case 'U':
+						switch( x ) {
+							case 0:
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 1:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 2:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 3:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 4:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 5:
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								break;
+						}
+						break;
+					case 'V':
+						switch( x ) {
+							case 0:
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								break;
+							case 1:
+								var[m] = '\\'; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								break;
+							case 2:
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 3:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 4:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 5:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+						}
+						break;
+					case 'W':
+						switch( x ) {
+							case 0:
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 1:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 2:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								var[m] = '\\'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 3:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 4:
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								var[m] = '\\'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								break;
+							case 5:
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								break;
+						}
+						break;
+					case 'X':
+						switch( x ) {
+							case 0:
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								break;
+							case 1:
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								break;
+							case 2:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = ' '; m++;
+								var[m] = 'V'; m++;
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 3:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '>'; m++;
+								var[m] = ' '; m++;
+								var[m] = '<'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 4:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								var[m] = '.'; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 5:
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								var[m] = '_'; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = '_'; m++;
+								var[m] = '\\'; m++;
+								break;
+						}
+						break;
+					case 'Y':
+						switch( x ) {
+							case 0:
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								break;
+							case 1:
+								var[m] = '\\'; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								break;
+							case 2:
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = '_'; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 3:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '\\'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 4:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 5:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+						}
+						break;
+					case 'Z':
+						switch( x ) {
+							case 0:
+								var[m] = ' '; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								break;
+							case 1:
+								var[m] = '|'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								break;
+							case 2:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 3:
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								var[m] = ' '; m++;
+								break;
+							case 4:
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								var[m] = ' '; m++;
+								var[m] = '/'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = ' '; m++;
+								break;
+							case 5:
+								var[m] = '/'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '_'; m++;
+								var[m] = '|'; m++;
+								break;
+						}
+						break;
+
+				}
+				var[m] = ' '; m++;
+			}
+			var[m] = '\n'; m++;
+			x++;
 		}
 		var[m] = '\n'; m++;
-		x++;
 	}
 	var[m] = '\0';
 	return &var[0];
@@ -1965,18 +2015,21 @@ void rand_animation( char* text, char time_type, int time_in_ms, int center_alig
 		1: True/Yes
 	*/
 	
+	char message[5000];
+	strcpy( message, paragraph( text ) );
+	
 	// center_align, displacement
 	int counter = 0;
-	for( int i = 0; i <= strlen( text ); i++ ) {
-		if( text[i] == '\n' || text[i] == '\0' ) {
+	for( int i = 0; i <= strlen( message ); i++ ) {
+		if( message[i] == '\n' || message[i] == '\0' ) {
 			counter++;
 		}
 	}
 	
 	int displacement[counter];
 	int len = 0;
-	for( int i = 0, j = 0; i <= strlen( text ); i++ ) {
-		if( text[i] != '\n' && text[i] != '\0' ) {
+	for( int i = 0, j = 0; i <= strlen( message ); i++ ) {
+		if( message[i] != '\n' && message[i] != '\0' ) {
 			len++;
 		}
 		else {
@@ -1990,8 +2043,9 @@ void rand_animation( char* text, char time_type, int time_in_ms, int center_alig
 	console_cursor( 0 );
 	
 	len = 0;
-	for( int i = 0; i < strlen( text ); i++ ) {
-		if( text[i] != '\n' && text[i] != ' ' ) {
+
+	for( int i = 0; i < strlen( message ); i++ ) {
+		if( message[i] != '\n' && message[i] != ' ' ) {
 			len++;
 		}
 	}
@@ -2006,8 +2060,6 @@ void rand_animation( char* text, char time_type, int time_in_ms, int center_alig
 			break;
 	}
 	
-	char message[5000];
-	strcpy( message, text );
 	srand( len );
 	
 	COORD pos;

@@ -92,13 +92,15 @@ center_align( "Hello" );
 ````
 
 ## center_align [2]
-`void center_align(int)`
+`int center_align(int)`
 
-give the length of the string to the function and it shall only move the cursor to the center position
+give the length of the string to the function and it shall return the value by which the cursor should move along the x-axis
 
 ````
 center_align( 5 );
 ````
+
+_Use the returned value in a gotoXY function for best results_
 
 ## paragraph
 `char* paragraph(char*)`
