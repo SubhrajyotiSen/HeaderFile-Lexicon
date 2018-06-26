@@ -125,7 +125,7 @@ clean_slate( 5, 0 );
 //using this, the first 5 spaces of the console wont be cleared, everything else from the current poistion shall be cleared
 ````
 
-#typeout
+## typeout
 
 an animation which shows the specified text as though it was being typewritten
 
@@ -159,8 +159,6 @@ _Make sure to immediately save the returned value in a local char array variable
 
 ## rand_animation
 
-#typeout
-
 an animation which randomly selects  letters from a string and displays it in its position on the screen one-by-one
 
 the first parameter is the char array holding the string
@@ -171,10 +169,13 @@ the second one specifies the type of delay you are providing
 
 the third parameter is the time ( in milliseconds ) which is formatted according to the second parameter
 
+there is also an optional fourth parameter for center-aligning the output
+
 ````
-rand_animation("this is just a random text", 't', 2000 );
+rand_animation("this is just a random text", 't', 2000, 1 );
 // this shall randomly select letters from the string and show them 1-by-1
 // this shall run for the duration of 2 seconds
+// the output shall be center-aligned
 ````
 
 ## pass_entry
@@ -266,6 +267,9 @@ this works only if the entry_type ( second parameter ) is set to files ( 1 )
 ````
 select_file( "C:\Users\Student\Documents", 2 );
 this shall keep displaying the folder present in the current directory ( Documents of Student at first ) till a folder is not selected
+
+select_file( "C:\Users\Student\Documents", 1, "txt" );
+this shall keep displaying the folders and text files present in the current directory till a file is not selected
 ````
 
 _Make sure to immediately save the returned value in a local char array variable by using strcpy function_
