@@ -104,7 +104,7 @@ char* conv_to_char(int number)
 		num_temp = num_temp % 10;	// All	Following terms (Mathematically) eliminated
 		number_char[i] = char(num_temp + '0');
 	}
-	number_char[len + 1] = '\0';
+	number_char[len] = '\0';
 	
 	return number_char;
 }
