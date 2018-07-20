@@ -1,7 +1,6 @@
-__Read the Wiki!!__
+# HeaderFile-Lexicon 
 
-Read the wiki before contacting the developer. It has all syntax and also explains the header file
-
+[![MIT License](https://img.shields.io/crates/l/rustc-serialize.svg)](https://github.com/MFReaper/HeaderFile-Lexicon/blob/master/LICENSE) [![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/badges/shields.svg)](https://github.com/MFReaper/HeaderFile-Lexicon/blob/master/lexicon.h)
 
 ````
  _        ______   __   __  _____    _____    ____    _   _
@@ -10,12 +9,13 @@ Read the wiki before contacting the developer. It has all syntax and also explai
 | |      |  __|      > <     | |   | |      | |  | | | . ` |
 | |____  | |____    / . \   _| |_  | |____  | |__| | | |\  |
 |______| |______|  /_/ \_\ |_____|  \_____|  \____/  |_| \_|
+
 ````
 
-Lexicon is custom header file for C++.
+## Lexicon is custom header file for C++.
 
-Please note that it only works on the Windows OS
+Please note that it only works on the Windows.
 
 It is a collection of some simple and some complex functions. These functions can be used to manipulate strings, create animations ( without graphics.h ), etc.
 
-To know more see the Wiki
+To know more see the [Wiki](https://github.com/MFReaper/HeaderFile-Lexicon/tree/master/Wiki) !!
