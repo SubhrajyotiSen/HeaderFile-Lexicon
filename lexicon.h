@@ -1984,21 +1984,54 @@ char* ascii_heading( char* message ) {
 }
 
 void clean_slate( int x, int y ) {
-	COORD pos;
-	pos.X = getX();
-	pos.Y = getY();
-	if( pos.Y > y || ( pos.Y == y && pos.X > x ) ) {
-		gotoXY( x, y, 0 );
-		while( getX() != pos.X || getY() != pos.Y ) {
-			cout << " ";
+	int counter = 0;
+	COORD pos_orig;
+	pos_orig.X = getX();
+	pos_orig.Y = getY();
+	
+	COORD pos_cur;
+	pos_cur.X = x;
+	pos_cur.Y = y;
+	
+	if( pos_cur.Y == pos_orig.Y ) {
+		pos_cur.X = x;
+		while( pos_cur.X != pos_orig.X ) {
+			counter++;
+			pos_cur.X++;
 		}
-		gotoXY( x, y, 0 );		
 	}
-	else if( y > pos.Y || ( pos.Y == y && pos.X < x ) ) {
-		while( getX() != x || getY() != y ) {
-			cout << " ";
+	else {
+		for( int i = x; i < screen_len(); i++ ) {
+			counter++;
 		}
 	}
+	
+	pos_cur.X = 0;
+	pos_cur.Y += 1;
+	
+	while( pos_orig.Y - pos_cur.Y  >= 1 ) {
+		for( int i = 0; i < screen_len(); i++ ) {
+			counter++;
+		}
+		pos_cur.Y++;
+	}
+	
+	while( pos_cur.X != pos_orig.X ) {
+		counter++;
+		pos_cur.X++;
+	}
+	
+	char output_clear[counter];
+	
+	for( int i = 0; i < ( sizeof( output_clear ) / sizeof( char ) ); i++ ) {
+		output_clear[i] = ' ';
+	}
+	
+	gotoXY( x, y, 0 );
+	
+	cout.write( output_clear, sizeof( output_clear ) );
+	
+	gotoXY( x, y, 0 );
 
 	return;
 }
