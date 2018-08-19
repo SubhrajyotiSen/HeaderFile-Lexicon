@@ -131,20 +131,6 @@ class WINDOWS {
 		void CleanSlate( int, int );
 }CONSOLE;
 	
-// Classes
-
-class PARAGRAPH {
-	private:
-		int margin;
-		char msg_data[10000];
-	public:
-		PARAGRAPH();
-		void ClearData();
-		void ParaData( char* );
-		void SetMargin( int );
-		void WritePara();
-};
-	
 	
 // MAIN FUNCTIONS //
 
