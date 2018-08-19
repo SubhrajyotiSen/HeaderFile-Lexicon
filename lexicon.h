@@ -42,24 +42,6 @@ const int KEY_RIGHT = 77;
 	
 // Classes
 
-class LIST {
-	private:
-		int line_count;
-		COORD pos_start;
-		COORD pos_end;
-		char box[6];
-		char list_data[200][1000];
-		char level_data[200];
-		int index;
-		
-		void ClearData();
-		void WriteList( int );
-	public:
-		LIST();
-		void AddListData( int, char* );
-		void RadioList();
-};
-
 class CRYPTEX {
 	private:
 		char Alpha[26];
@@ -148,6 +130,20 @@ class WINDOWS {
 		void gotoXY( int, int, int );
 		void CleanSlate( int, int );
 }CONSOLE;
+	
+// Classes
+
+class PARAGRAPH {
+	private:
+		int margin;
+		char msg_data[10000];
+	public:
+		PARAGRAPH();
+		void ClearData();
+		void ParaData( char* );
+		void SetMargin( int );
+		void WritePara();
+};
 	
 	
 // MAIN FUNCTIONS //
@@ -259,14 +255,14 @@ char* HidePassEntry( char hide_char, int max_length ) {
 }
 
 
-
-char* BrowseDisk(char* location, int entry_type, char* file_extension = "*")
 /*
-entry_type:
-	0: All
-	1: Files
-	2: Folders
-*/
+char* BrowseDisk(char* location, int entry_type, char* file_extension = "*")
+
+//entry_type:
+//	0: All
+//	1: Files
+//	2: Folders
+
 {
 	int selection_int = 0;
 	char selection_char[4] = "\0";
@@ -581,6 +577,7 @@ entry_type:
 	CONSOLE.CursorStatus( cursor );
 	return &path[0];
 }
+*/
 
 
 /*
@@ -1384,115 +1381,6 @@ char* CRYPTEX::ReturnAsString() {
 		AppendString( file_temp, "\n" );
 	}
 	return &file_temp[0];
-}
-
-
-/*
-
-CLASS LIST
-
-*/
-
-LIST::LIST() {
-	for( int i = 0; i < sizeof( list_data ) / sizeof( list_data[0] ); i++ ) {
-		for( int j = 0; j < sizeof( list_data[0] ); j++ ) {
-			list_data[i][j] = '\0';
-		}
-	}
-	for( int i = 0; i < sizeof( level_data ) / sizeof( int ); i++ ) {
-		level_data[i] = 1;
-	}
-	for( int i = 0; i < sizeof( box ); i++ ) {
-		box[i] = '\0';
-	}
-	strcpy( box, "[   ]" );
-	index = 0;
-	pos_start.X = 0;
-	pos_start.Y = 0;
-	pos_end.X = 0;
-	pos_end.Y = 0;
-	line_count = 1;
-	return;
-}
-
-void LIST::AddListData( int level, char* ListItem ) {
-	strcpy( list_data[index], ListItem );
-	level_data[index] = level;
-	index++;
-	return;
-}
-
-
-void LIST::WriteList( int level ) {
-	pos_start.X = CONSOLE.getX();
-	pos_start.Y = CONSOLE.getY();
-	
-	PARAGRAPH list_item[index];
-	int margin = 0;
-	margin = ( level )*strlen( box ) + 1;
-	
-	for( int i = 0; i < index; i++ ) {
-		if( level_data[i] == level ) {
-			list_item[i].SetMargin( margin );
-			list_item[i].SetMaxLineLen( 50 );
-			list_item[i].ParaData( list_data[i] );
-			
-			CONSOLE.gotoXY( margin - strlen( box ) - 1, CONSOLE.getY(), 0 );
-			cout.write( box, strlen( box ) );
-			cout << " ";
-			list_item[i].WritePara();
-			pos_end.Y = CONSOLE.getY();
-			cout << endl;
-		}
-	}
-	CONSOLE.gotoXY( ( margin / 2 ) - 1, pos_start.Y, 0 );
-	return;
-}
-
-void LIST::RadioList() {
-	int index_temp = 0;
-	int level = 1;
-	
-	pos_start.Y = CONSOLE.getY();
-	WriteList( 1 );
-	
-	char selection = '\0';
-	do{
-		line_count = 1;
-		selection = getch();
-		switch( selection ) {
-			case KEY_UP:
-				if( CONSOLE.getY() > pos_start.Y ) {
-					for( int i = 0; i < strlen( list_data[index_temp - 1] ); i++ ) {
-						if( list_data[index_temp - 1][i] == '\n' ) {
-							line_count++;
-						}
-					}
-					CONSOLE.gotoXY ( 0, -line_count, 1 );
-					do {
-						index_temp--;
-					}while( level_data[index_temp] != level );
-					cout << index_temp;
-				}
-				break;
-			case KEY_DOWN:
-				if( CONSOLE.getY() < pos_end.Y ) {
-					for( int i = 0; i < strlen( list_data[index_temp] ); i++ ) {
-						if( list_data[index_temp][i] == '\n' ) {
-							line_count++;
-						}
-					}
-					CONSOLE.gotoXY( 0, line_count, 1 );
-					index_temp++;
-				 	do{
-						index_temp++;
-					}while( level_data[index_temp] != level );
-					cout << index_temp;
-				}
-				break;
-		}
-	}while( selection != KEY_ENTER );
-	return;
 }
 
 
@@ -3320,7 +3208,6 @@ char* AsciiHeading( char* message ) {
 	var[m] = '\0';
 	return &var[0];
 }
-
 
 #endif LEXICON_H
 
