@@ -18,4 +18,4 @@ Please note that it only works on the Windows.
 
 It is a collection of some simple and some complex functions. These functions can be used to manipulate strings, create animations ( without graphics.h ), etc.
 
-To know more see the [Wiki](https://github.com/MFReaper/HeaderFile-Lexicon/tree/master/Wiki) !!
+To know more see the [Wiki](https://github.com/Blank-One/HeaderFile-Lexicon/wiki) !!
